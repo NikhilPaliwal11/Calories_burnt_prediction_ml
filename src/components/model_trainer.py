@@ -36,7 +36,7 @@ class ModelTrainer:
             
             models = {
                 "Linear Regression": LinearRegression(),
-                "Random Forest": RandomForestRegressor(n_jobs=-1),
+                "Random Forest": RandomForestRegressor(random_state=42,n_jobs=1),
                 "Decision Tree Regressor": DecisionTreeRegressor()   
             }
             
@@ -44,20 +44,18 @@ class ModelTrainer:
             "Linear Regression" : {},
 
             "Random Forest" : {
-            "n_estimators": [100, 300, 500],
-            "max_depth": [None, 5, 10, 15],
-            "min_samples_split": [2, 5, 10],
-            "min_samples_leaf": [1, 2, 5],
-            "max_features": ['sqrt', 'log2', None]},
+            "n_estimators": [25, 50],
+            "max_depth": [5, 8],
+            "min_samples_split": [5, 10],
+            "min_samples_leaf": [2, 5],
+            "max_features": ["sqrt"]},
 
             "Decision Tree Regressor" : {
-            "criterion": ['squared_error', 'absolute_error'],
-            #"criterion":['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
-            "max_depth": [None, 5, 10, 15],
-            "min_samples_split": [2, 5, 10],
-            "min_samples_leaf": [1, 2, 5],
-            # 'splitter':['best','random'],
-            "max_features": [None, 'sqrt', 'log2']},
+            "criterion": ["squared_error"],
+            "max_depth": [5, 8, 10],
+            "min_samples_split": [5, 10],
+            "min_samples_leaf": [2, 5],
+            "max_features": ["sqrt"]},
             }
 
 
